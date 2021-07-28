@@ -8,14 +8,55 @@ const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 
 router.post("/savePhoneData", async (req, res) => {
-  const { Name, Brand,Model, Processor, Ram,Display } = req.body;
-  console.log(Name, Brand,Model )
- 
+  const { 
+    Name, 
+    Model, 
+    Brand, 
+    Processor, 
+    Price,
+    Display,
+    ReleaseDate,
+    Ram, 
+    DisplayRes,
+    DisplayType,
+    Weight,
+    Os,
+    InternalMemory,
+    ExternalMemory,
+    CameraMain,
+    CameraSecondary,
+    CameraFront,
+    CameraVideoRes,
+    is5G,
+  } = req.body;
+  // console.log(req.body)
+  const Specification = {
+    Ram:Ram,
+    DisplayRes:DisplayRes,
+    DisplayType:DisplayType,
+    Weight:Weight,
+    Os:Os,
+    InternalMemory:InternalMemory,
+    ExternalMemory:ExternalMemory,
+    CameraMain:CameraMain,
+    CameraSecondary:CameraSecondary,
+    CameraFront:CameraFront,
+    CameraVideoRes:CameraVideoRes,
+    Weight:Weight,
+    is5G:is5G,
+    Model:Model,
+    Display:Display,
+    
+
+  }
+  console.log(Specification)
+
   try {
     const response = await Phone.create({
-      Name, Brand,Model
+      Name, Brand, Processor, Specification ,Price ,ReleaseDate,
+
     });
-    console.log('response',response)
+    console.log('response', response)
   } catch (error) {
     if (error.code === 11000) {
       // duplicate key

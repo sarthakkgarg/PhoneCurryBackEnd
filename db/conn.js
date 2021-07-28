@@ -1,7 +1,9 @@
 const mongoose = require("mongoose");
 
 const Db =
-  "mongodb+srv://macbook:macbook@cluster0.ztfod.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+"mongodb+srv://macbook:macbook@cluster0.ztfod.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+
+  
 mongoose
   .connect(Db, {
     useNewUrlParser: true,

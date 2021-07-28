@@ -8,6 +8,7 @@ const AuthLogin = require("./router/authLogin")
 const PhoneSelector = require("./router/phoneSelector")
 const SavePhoneData = require("./router/savePhoneData")
 const ExtractData =  require("./router/extractData")
+const ViewPhone = require("./router/viewPhones")
 
 const cors = require('cors');
 
@@ -18,6 +19,7 @@ app.use(AuthLogin);
 app.use(PhoneSelector);
 app.use(SavePhoneData);
 app.use(ExtractData);
+app.use(ViewPhone);
 
 
 
