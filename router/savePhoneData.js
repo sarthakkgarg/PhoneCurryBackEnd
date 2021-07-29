@@ -2,12 +2,9 @@ const express = require("express");
 const router = express.Router();
 const Phone = require("../model/PhoneSchema");
 require("../db/conn");
-const bcrypt = require("bcryptjs");
-const jwt = require("jsonwebtoken");
-const bodyParser = require("body-parser");
-const mongoose = require("mongoose");
+const upload = require("../middleware/upload");
 
-router.post("/savePhoneData", async (req, res) => {
+router.post("/savePhoneData",upload.single("file"), async (req, res) => {
   const { 
     Name, 
     Model, 
@@ -29,6 +26,7 @@ router.post("/savePhoneData", async (req, res) => {
     CameraVideoRes,
     is5G,
   } = req.body;
+
   // console.log(req.body)
   const Specification = {
     Ram:Ram,
@@ -46,15 +44,12 @@ router.post("/savePhoneData", async (req, res) => {
     is5G:is5G,
     Model:Model,
     Display:Display,
-    
-
   }
   console.log(Specification)
 
   try {
     const response = await Phone.create({
       Name, Brand, Processor, Specification ,Price ,ReleaseDate,
-
     });
     console.log('response', response)
   } catch (error) {
