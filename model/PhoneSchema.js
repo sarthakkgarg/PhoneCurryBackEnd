@@ -6,7 +6,7 @@ const PhoneSchema = new mongoose.Schema(
 		Model: { type: String, required: false, unique: false },
 		Brand: { type: String, required: false, unique: false },
 		Price: { type: Number, required: false, unique: false },
-		ReleaseData: { type: String, required: false, unique: false },
+		ReleaseDate: { type: String, required: false, unique: false },
 		image:{ data: Buffer, Type: String },
 		Specification: {
 			DisplayRes: { type: String, required: false, unique: false },

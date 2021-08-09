@@ -10,7 +10,7 @@ const SavePhoneData = require("./router/savePhoneData")
 const ExtractData =  require("./router/extractData")
 const ViewPhone = require("./router/viewPhones")
 const multer = require("multer")
-
+        
 const cors = require('cors');
 
 app.use(express.json());
